@@ -1,15 +1,15 @@
 import streamlit as st
+from funcoes import cadastrar
+from funcoes import visualizar
+from funcoes import editar
 
-st.set_page_config(page_title='CadastroTarefas', layout='wide', initial_sidebar_state="expanded")
+with st.sidebar:
+    st.title("Menu Lateral")
+    opcao = st.selectbox("Opções:", ["Cadastrar Tarefas", "Visualizar Tarefas", "Editar Tarefas"])
 
-pagina = st.sidebar.selectbox('Escolha uma página:', ['Cadastrar', 'Entrar', 'Tarefas'])
-
-paginas = {
-    'Cadastrar': 'cadastrar.py',
-    'Entrar': 'entrar.py',
-    'Tarefas': 'tarefas.py'
-}
-
-
-with open(paginas[pagina], 'r', encoding='utf-8') as arquivo:
-    exec(arquivo.read())
+if opcao == "Cadastrar Tarefas":
+    cadastrar()
+elif opcao == "Visualizar Tarefas":
+    visualizar()
+elif opcao == "Editar Tarefas":
+    editar()
