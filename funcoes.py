@@ -68,7 +68,7 @@ def editar():
 
     for i, linha in enumerate(linhas):
         partes = linha.strip().split(" | ")
-        if partes[1] == tarefa_escolhida:
+        if len(partes) == 5 and partes[1] == tarefa_escolhida:
             nome_atual, _, _, _, _ = partes
             break
 
